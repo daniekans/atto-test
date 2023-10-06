@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  padding: 16px;
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (orientation: landscape) {
+  main {
+    max-width: 50%;
+  }
+}

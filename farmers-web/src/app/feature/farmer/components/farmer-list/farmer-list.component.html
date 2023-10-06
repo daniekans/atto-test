@@ -1,0 +1,10 @@
+<h1>{{ 'FARMERS_LIST.TITLE' | translate }}</h1>
+<main *ngIf="farmerList$ | async as farmers; else loadingList">
+  <app-farmer-card *ngFor="let farmer of farmers" [farmer]="farmer"></app-farmer-card>
+</main>
+<ng-template #loadingList>
+  <p>{{ 'FARMERS_LIST.LOADING' | translate }}</p>
+</ng-template>
+<ng-template #emptyList>
+  <p>{{ 'FARMERS_LIST.EMPTY_STATE' | translate }}</p>
+</ng-template>

@@ -1,0 +1,11 @@
+{
+  "FARMERS_LIST": {
+    "TITLE": "Agricultores",
+    "LOADING": "Carregando dados dos agricultores...",
+    "EMPTY_STATE": "Não há agricultores registrados."
+  },
+  "FARMER_CARD": {
+    "EDIT": "Editar",
+    "DELETE": "Excluir"
+  }
+}

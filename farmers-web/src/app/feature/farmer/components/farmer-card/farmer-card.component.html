@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ farmer.identification }}</mat-card-title>
+    <mat-card-subtitle>{{ farmer.companyName }} ({{ farmer.tradingName }})</mat-card-subtitle>
+    <mat-card-subtitle>{{ farmer.city }} - {{ farmer.state }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button class="action-button" mat-raised-button color="primary">
+      {{ 'FARMER_CARD.EDIT' | translate }}
+    </button>
+    <button class="action-button" mat-raised-button color="warn">
+      {{ 'FARMER_CARD.DELETE' | translate }}
+    </button>
+  </mat-card-actions>
+</mat-card>
