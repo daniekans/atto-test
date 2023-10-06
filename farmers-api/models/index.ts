@@ -4,7 +4,7 @@ import { farmerModel } from './farmer.model';
 
 const sequelize = new Sequelize(dbConfig.DB!, dbConfig.USER!, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
-  dialect: dbConfig.dialect as Dialect,
+  dialect: dbConfig.DIALECT as Dialect,
   operatorsAliases: {
     $and: Op.and,
     $or: Op.or,
