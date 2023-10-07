@@ -2,7 +2,8 @@
   "FARMERS_LIST": {
     "TITLE": "Agricultores",
     "LOADING": "Carregando dados dos agricultores...",
-    "EMPTY_STATE": "Não há agricultores registrados."
+    "EMPTY_STATE": "Não há agricultores registrados.",
+    "ADD_FARMER": "+ Adicionar Agricultor"
   },
   "FARMER_CARD": {
     "PHONE_NUMBER": "Celular",
@@ -15,5 +16,20 @@
     "CANCEL": "Cancelar",
     "DELETE": "Excluir",
     "DELETED_SUCCESSFULLY": "Agricultor excluído."
+  },
+  "FARMER_FORM_DIALOG": {
+    "TITLE_ADD": "Adicionar Agricultor",
+    "TITLE_EDIT": "Editar Agricultor",
+    "COMPANY_NAME": "Razão Social",
+    "TRADING_NAME": "Nome Fantasia",
+    "IDENTIFICATION": "CPF/CNPJ",
+    "CITY": "Cidade",
+    "STATE": "Estado",
+    "PHONE_NUMBER": "Celular",
+    "CANCEL": "Cancelar",
+    "SAVE": "Salvar",
+    "ADD": "Adicionar",
+    "ADDED_SUCCESSFULLY": "Agricultor adicionado.",
+    "EDITED_SUCCESSFULLY": "Agricultor editado."
   }
 }

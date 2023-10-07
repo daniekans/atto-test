@@ -1,7 +1,12 @@
-.action-button {
-  margin-right: .5rem;
+.farmer-card {
+  padding: .5rem;
 
-  &:last-of-type {
-    margin-right: 0;
+  .action-button {
+    margin-right: .5rem;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
 }
+

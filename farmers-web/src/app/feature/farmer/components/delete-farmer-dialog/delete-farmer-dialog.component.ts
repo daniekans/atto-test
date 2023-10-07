@@ -9,11 +9,11 @@ import { Farmer } from '../../models/farmer.interface';
 })
 export class DeleteFarmerDialogComponent {
   constructor(
-    public dialogRef: MatDialogRef<DeleteFarmerDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public farmer: Farmer
+    private dialogRef: MatDialogRef<DeleteFarmerDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) private farmer: Farmer
   ) {}
 
-  onNoClick(): void {
+  onCancel(): void {
     this.dialogRef.close();
   }
 }

@@ -1,1 +1,37 @@
-<p>farmer-form-dialog works!</p>
+<h1 mat-dialog-title>
+  {{ 'FARMER_FORM_DIALOG.TITLE_' + (isEditMode ? 'EDIT' : 'ADD') | translate }}
+</h1>
+<div mat-dialog-content>
+  <form [formGroup]="formGroup">
+    <mat-form-field>
+      <mat-label>{{ 'FARMER_FORM_DIALOG.COMPANY_NAME' | translate }}</mat-label>
+      <input matInput formControlName="companyName" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ 'FARMER_FORM_DIALOG.TRADING_NAME' | translate }}</mat-label>
+      <input matInput formControlName="tradingName" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ 'FARMER_FORM_DIALOG.IDENTIFICATION' | translate }}</mat-label>
+      <input matInput formControlName="identification" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ 'FARMER_FORM_DIALOG.CITY' | translate }}</mat-label>
+      <input matInput formControlName="city" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ 'FARMER_FORM_DIALOG.STATE' | translate }}</mat-label>
+      <input matInput formControlName="state" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ 'FARMER_FORM_DIALOG.PHONE_NUMBER' | translate }}</mat-label>
+      <input matInput formControlName="phoneNumber" />
+    </mat-form-field>
+  </form>
+  <div class="action-buttons" mat-dialog-actions align="end">
+    <button mat-button (click)="onCancel()">{{ 'FARMER_FORM_DIALOG.CANCEL' | translate }}</button>
+    <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!formGroup.valid">
+      {{ 'FARMER_FORM_DIALOG.' + (isEditMode ? 'SAVE' : 'ADD') | translate }}
+    </button>
+  </div>
+</div>

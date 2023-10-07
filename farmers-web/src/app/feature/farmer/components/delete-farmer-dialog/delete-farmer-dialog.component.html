@@ -2,8 +2,8 @@
 <div mat-dialog-content>
   <p>{{ 'DELETE_FARMER_DIALOG.CONFIRMATION_QUESTION' | translate }}</p>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">{{ 'DELETE_FARMER_DIALOG.CANCEL' | translate }}</button>
+<div class="action-buttons" mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">{{ 'DELETE_FARMER_DIALOG.CANCEL' | translate }}</button>
   <button mat-raised-button color="warn" [mat-dialog-close]="true">
     {{ 'DELETE_FARMER_DIALOG.DELETE' | translate }}
   </button>

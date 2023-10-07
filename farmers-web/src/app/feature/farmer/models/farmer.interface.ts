@@ -7,3 +7,5 @@ export interface Farmer {
   state: string;
   phoneNumber: string | null;
 }
+
+export type UnpersistedFarmer = Omit<Farmer, 'id'>;

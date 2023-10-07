@@ -2,7 +2,13 @@
   display: block;
   padding: 2rem;
 
-  main {
+  .list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .list-content {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -10,7 +16,7 @@
 }
 
 @media (orientation: landscape) {
-  main {
+  :host {
     max-width: 50%;
   }
 }

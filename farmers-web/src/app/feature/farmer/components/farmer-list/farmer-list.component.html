@@ -1,5 +1,10 @@
-<h1>{{ 'FARMERS_LIST.TITLE' | translate }}</h1>
-<main *ngIf="farmerList$ | async as farmers; else loadingList">
+<header class="list-header">
+  <h1>{{ 'FARMERS_LIST.TITLE' | translate }}</h1>
+  <button mat-raised-button color="primary" (click)="onAddButtonClicked()">
+    {{ 'FARMERS_LIST.ADD_FARMER' | translate }}
+  </button>
+</header>
+<main class="list-content" *ngIf="farmerList$ | async as farmers; else loadingList">
   <app-farmer-card *ngFor="let farmer of farmers" [farmer]="farmer"></app-farmer-card>
 </main>
 <ng-template #loadingList>
