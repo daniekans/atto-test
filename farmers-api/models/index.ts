@@ -1,19 +1,11 @@
-import { Dialect, Op, Sequelize } from 'sequelize';
+import { Dialect, Sequelize } from 'sequelize';
 import { dbConfig } from '../config/db.config.js';
 import { farmerModel } from './farmer.model';
 
 const sequelize = new Sequelize(dbConfig.DB!, dbConfig.USER!, dbConfig.PASSWORD, {
+  port: Number(dbConfig.PORT),
   host: dbConfig.HOST,
   dialect: dbConfig.DIALECT as Dialect,
-  operatorsAliases: {
-    $and: Op.and,
-    $or: Op.or,
-    $eq: Op.eq,
-    $gt: Op.gt,
-    $lt: Op.lt,
-    $lte: Op.lte,
-    $like: Op.like,
-  },
   pool: {
     max: dbConfig.pool.max,
     min: dbConfig.pool.min,

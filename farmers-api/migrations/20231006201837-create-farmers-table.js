@@ -4,7 +4,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable(
-      'farmers',
+      'farmer',
       {
         id: {
           type: Sequelize.INTEGER,
@@ -14,7 +14,7 @@ module.exports = {
         },
         companyName: { type: Sequelize.STRING, allowNull: false },
         tradingName: { type: Sequelize.STRING, allowNull: false },
-        identification: { type: new Sequelize.STRING(15), allowNull: false },
+        personIdentification: { type: new Sequelize.STRING(15), allowNull: false },
         city: { type: Sequelize.STRING(50), allowNull: false },
         state: { type: Sequelize.STRING(50), allowNull: false },
         phoneNumber: { type: new Sequelize.STRING(20) },
@@ -26,6 +26,6 @@ module.exports = {
   },
 
   async down(queryInterface) {
-    await queryInterface.dropTable('farmers');
+    await queryInterface.dropTable('farmer');
   },
 };

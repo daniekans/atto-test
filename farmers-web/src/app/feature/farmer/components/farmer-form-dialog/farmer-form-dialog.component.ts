@@ -30,7 +30,7 @@ export class FarmerFormDialogComponent implements OnInit {
       companyName: [farmer?.companyName ?? '', [Validators.required]],
       tradingName: [farmer?.tradingName ?? '', [Validators.required]],
       identification: [
-        farmer?.identification ?? '',
+        farmer?.personIdentification ?? '',
         [
           Validators.required,
           Validators.minLength(11),
@@ -49,7 +49,7 @@ export class FarmerFormDialogComponent implements OnInit {
     const submitedFarmer: UnpersistedFarmer = {
       companyName: formValue.companyName,
       tradingName: formValue.tradingName,
-      identification: formValue.identification,
+      personIdentification: formValue.identification,
       city: formValue.city,
       state: formValue.state,
       phoneNumber: formValue.phoneNumber,

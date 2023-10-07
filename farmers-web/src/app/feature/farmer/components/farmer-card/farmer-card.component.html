@@ -1,6 +1,6 @@
 <mat-card class="farmer-card">
   <mat-card-header>
-    <mat-card-title>{{ farmer.identification | mask: 'CPF_CNPJ' }}</mat-card-title>
+    <mat-card-title>{{ farmer.personIdentification | mask: 'CPF_CNPJ' }}</mat-card-title>
     <mat-card-subtitle>{{ farmer.companyName }} ({{ farmer.tradingName }})</mat-card-subtitle>
     <mat-card-subtitle>{{ farmer.city }} - {{ farmer.state }}</mat-card-subtitle>
     <mat-card-subtitle *ngIf="farmer.phoneNumber"

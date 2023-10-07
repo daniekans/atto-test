@@ -3,7 +3,7 @@ import cors from 'cors';
 import * as dotenv from 'dotenv';
 import express, { Express, Request, Response } from 'express';
 import db from '../models/index';
-import { configFarmerRoutes } from '../routes/farmer.routes';
+import { setUpFarmerRoutes } from '../routes/farmer.routes';
 
 dotenv.config();
 
@@ -18,7 +18,7 @@ db.sequelize
   .then(() => console.log('Synced database.'))
   .catch(err => console.log(`Failed to sync database: ${err.message}`));
 
-configFarmerRoutes(app);
+setUpFarmerRoutes(app);
 
 const PORT = process.env['NODE_DOCKER_PORT'] ?? 8080;
 

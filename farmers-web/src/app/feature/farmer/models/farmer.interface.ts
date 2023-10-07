@@ -2,7 +2,7 @@ export interface Farmer {
   id: number;
   companyName: string;
   tradingName: string;
-  identification: string;
+  personIdentification: string;
   city: string;
   state: string;
   phoneNumber: string | null;
