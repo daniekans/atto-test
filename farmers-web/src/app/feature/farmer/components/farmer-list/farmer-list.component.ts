@@ -14,6 +14,11 @@ export class FarmerListComponent implements OnInit {
   constructor(private farmerService: FarmerService) {}
 
   ngOnInit(): void {
+    this.fetchFarmerData();
+    this.farmerService.farmerChangeEvent.subscribe(() => this.fetchFarmerData());
+  }
+
+  fetchFarmerData(): void {
     this.farmerList$ = this.farmerService.findAllFarmers();
   }
 }

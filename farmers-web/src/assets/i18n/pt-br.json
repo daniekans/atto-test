@@ -5,7 +5,15 @@
     "EMPTY_STATE": "Não há agricultores registrados."
   },
   "FARMER_CARD": {
+    "PHONE_NUMBER": "Celular",
     "EDIT": "Editar",
     "DELETE": "Excluir"
+  },
+  "DELETE_FARMER_DIALOG": {
+    "TITLE": "Excluir Agricultor",
+    "CONFIRMATION_QUESTION": "Você realmente deseja excluir o agricultor selecionado?",
+    "CANCEL": "Cancelar",
+    "DELETE": "Excluir",
+    "DELETED_SUCCESSFULLY": "Agricultor excluído."
   }
 }

@@ -1,5 +1,5 @@
 export interface Farmer {
-  id?: number;
+  id: number;
   companyName: string;
   tradingName: string;
   identification: string;
