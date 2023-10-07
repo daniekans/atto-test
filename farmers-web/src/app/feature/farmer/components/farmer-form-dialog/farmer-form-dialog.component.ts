@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { CpfCnpjValidator } from 'src/app/shared/validators/cpf-cnpj.validator';
 import { Farmer, UnpersistedFarmer } from '../../models/farmer.interface';
 
 @Component({
@@ -28,7 +29,15 @@ export class FarmerFormDialogComponent implements OnInit {
     this.formGroup = this.fb.group({
       companyName: [farmer?.companyName ?? '', [Validators.required]],
       tradingName: [farmer?.tradingName ?? '', [Validators.required]],
-      identification: [farmer?.identification ?? '', [Validators.required]],
+      identification: [
+        farmer?.identification ?? '',
+        [
+          Validators.required,
+          Validators.minLength(11),
+          Validators.maxLength(14),
+          CpfCnpjValidator.validate,
+        ],
+      ],
       city: [farmer?.city ?? '', [Validators.required]],
       state: [farmer?.state ?? '', [Validators.required]],
       phoneNumber: [farmer?.phoneNumber ?? ''],

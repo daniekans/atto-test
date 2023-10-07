@@ -13,7 +13,10 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>{{ 'FARMER_FORM_DIALOG.IDENTIFICATION' | translate }}</mat-label>
-      <input matInput formControlName="identification" />
+      <input matInput formControlName="identification" mask="CPF_CNPJ" />
+      <mat-error align="start" *ngIf="formGroup.get('identification')?.hasError('digit')">{{
+        'FARMER_FORM_DIALOG.INVALID_IDENTIFICATION' | translate
+      }}</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>{{ 'FARMER_FORM_DIALOG.CITY' | translate }}</mat-label>
