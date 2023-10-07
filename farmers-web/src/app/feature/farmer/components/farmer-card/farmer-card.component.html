@@ -8,7 +8,7 @@
     >
   </mat-card-header>
   <mat-card-actions>
-    <button class="action-button" mat-raised-button color="primary">
+    <button class="action-button" mat-raised-button color="primary" (click)="openEditDialog()">
       {{ 'FARMER_CARD.EDIT' | translate }}
     </button>
     <button class="action-button" mat-raised-button color="warn" (click)="openDeleteDialog()">

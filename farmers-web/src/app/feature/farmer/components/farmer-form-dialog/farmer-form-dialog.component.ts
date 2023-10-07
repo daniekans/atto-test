@@ -46,6 +46,10 @@ export class FarmerFormDialogComponent implements OnInit {
       phoneNumber: formValue.phoneNumber,
     };
 
+    if (this.farmer) {
+      (submitedFarmer as Farmer).id = this.farmer.id;
+    }
+
     this.dialogRef.close(submitedFarmer);
   }
 

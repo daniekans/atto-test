@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable, switchMap, tap } from 'rxjs';
+import { Observable, filter, switchMap, tap } from 'rxjs';
 import { Farmer } from '../../models/farmer.interface';
 import { FarmerService } from '../../services/farmer.service';
 import { FarmerFormDialogComponent } from '../farmer-form-dialog/farmer-form-dialog.component';
@@ -34,16 +34,14 @@ export class FarmerListComponent implements OnInit {
   onAddButtonClicked(): void {
     const dialogRef = this.dialog.open(FarmerFormDialogComponent);
 
-    dialogRef.afterClosed().subscribe((newFarmer: Farmer | undefined) => {
-      if (newFarmer) {
-        this.farmerService
-          .createFarmer(newFarmer)
-          .pipe(
-            tap(() => this.farmerService.farmerChangeEvent.next()),
-            switchMap(() => this.translateService.get('FARMER_FORM_DIALOG.ADDED_SUCCESSFULLY'))
-          )
-          .subscribe((message: string) => this.snackBar.open(message));
-      }
-    });
+    dialogRef
+      .afterClosed()
+      .pipe(
+        filter((newFarmer: Farmer) => newFarmer != null),
+        switchMap((newFarmer: Farmer) => this.farmerService.createFarmer(newFarmer)),
+        tap(() => this.farmerService.farmerChangeEvent.next()),
+        switchMap(() => this.translateService.get('FARMER_FORM_DIALOG.ADDED_SUCCESSFULLY'))
+      )
+      .subscribe((message: string) => this.snackBar.open(message));
   }
 }
