@@ -3,7 +3,7 @@ export const dbConfig = {
   USER: process.env['DB_USER'] ?? 'root',
   PASSWORD: process.env['DB_PASSWORD'] ?? '123456',
   DB: process.env['DB_NAME'] ?? 'farmers_db',
-  PORT: process.env['DB_PORT'] ?? 3307,
+  PORT: process.env['DB_PORT'] ?? 3306,
   DIALECT: process.env['DB_DIALECT'] ?? 'mysql',
   pool: {
     max: 5,

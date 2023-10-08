@@ -1,4 +1,4 @@
-FROM node:18.18.0
+FROM node:lts
 
 WORKDIR /farmers-api
 COPY package.json .
