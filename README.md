@@ -27,7 +27,7 @@ Alternativamente, é possível executar as aplicações individualmente em ambie
 
 ### API
 
-Antes de executar a API, é preciso que haja um serviço de banco de dados MySQL ativo para possibilitar a criação e o uso do banco com os dados dos agricultores. Caso necessário, altere as configurações de conexão com o banco local no arquivo [db.config.ts](/farmers-api/config/db.config.ts).
+Antes de executar a API, é preciso que haja um serviço de banco de dados MySQL ativo para possibilitar a criação e o uso do banco com os dados dos agricultores. Caso necessário, altere as configurações de conexão com o banco local no arquivo [db.config.js](/farmers-api/config/db.config.js).
 
 Com o banco já preparado, é preciso instalar as dependências da API e executá-la em seguida:
 
@@ -46,3 +46,16 @@ $ cd farmers-web
 $ npm ci
 $ npm run ng serve
 ```
+
+# Migrações
+
+O gerenciamento de _migrations_ de banco de dados é realizado por meio do Sequelize. Para executar as migrações, utilize este comando:
+
+```sh
+$ npx sequelize-cli db:migrate
+```
+
+Há outros comandos possíveis utilizando o Sequelize CLI, como:
+
+- `npx sequelize-cli migration:generate --name nome-da-migration`: gera uma nova _migration_ em [_/migrations_](./farmers-api/migrations/);
+- `npx sequelize-cli db:migrate:undo`: desfaz a _migration_ mais recente;
