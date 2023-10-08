@@ -1,5 +1,23 @@
+@import 'src/style/mixins';
+
 .farmer-card {
   padding: .5rem;
+
+  .title {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+
+  .farmer-info {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+
+    &__icon {
+      @include mat-icon-size(1rem);
+    }
+  }
 
   .action-button {
     margin-right: .5rem;

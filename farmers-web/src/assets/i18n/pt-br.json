@@ -1,12 +1,22 @@
 {
+  "HOME": {
+    "PROJECT_TITLE": "Agricultores",
+    "PAGE_TITLE": "Início"
+  },
   "FARMERS_LIST": {
     "TITLE": "Agricultores",
     "LOADING": "Carregando dados dos agricultores...",
     "EMPTY_STATE": "Não há agricultores registrados.",
-    "ADD_FARMER": "+ Adicionar Agricultor"
+    "ADD_FARMER": "Adicionar Agricultor"
   },
   "FARMER_CARD": {
-    "PHONE_NUMBER": "Celular",
+    "LABEL": {
+      "IDENTIFICATION": "CPF/CNPJ",
+      "COMPANY_NAME": "Razão Social",
+      "TRADING_NAME": "Nome Fantasia",
+      "LOCATION": "Local",
+      "PHONE_NUMBER": "Celular"
+    },
     "EDIT": "Editar",
     "DELETE": "Excluir"
   },

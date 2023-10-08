@@ -1,6 +1,10 @@
 <header class="list-header">
-  <h1>{{ 'FARMERS_LIST.TITLE' | translate }}</h1>
+  <div class="list-header__title">
+    <img src="assets/plant.svg" alt="Plant Icon" />
+    <h1>{{ 'FARMERS_LIST.TITLE' | translate }}</h1>
+  </div>
   <button mat-raised-button color="primary" (click)="onAddButtonClicked()">
+    <mat-icon>person_add</mat-icon>
     {{ 'FARMERS_LIST.ADD_FARMER' | translate }}
   </button>
 </header>

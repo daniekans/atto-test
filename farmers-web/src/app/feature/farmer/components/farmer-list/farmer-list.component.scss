@@ -1,11 +1,21 @@
 :host {
   display: block;
   padding: 2rem;
+  margin: 0 auto;
 
   .list-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &__title {
+      display: flex;
+      gap: 1rem;
+
+      img {
+        max-width: 2rem;
+      }
+    }
   }
 
   .list-content {

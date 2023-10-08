@@ -7,6 +7,7 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FeatureModule } from './feature/feature.module';
@@ -28,6 +29,7 @@ import { SharedModule } from './shared/shared.module';
     FeatureModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgHttpLoaderModule.forRoot(),
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },

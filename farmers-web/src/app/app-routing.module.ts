@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './feature/components/components/home/home.component';
+import { HomeComponent } from './feature/components/home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/agricultores', pathMatch: 'full' },

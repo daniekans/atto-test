@@ -1,17 +1,46 @@
 <mat-card class="farmer-card">
   <mat-card-header>
-    <mat-card-title>{{ farmer.personIdentification | mask: 'CPF_CNPJ' }}</mat-card-title>
-    <mat-card-subtitle>{{ farmer.companyName }} ({{ farmer.tradingName }})</mat-card-subtitle>
-    <mat-card-subtitle>{{ farmer.city }} - {{ farmer.state }}</mat-card-subtitle>
+    <mat-card-title
+      ><div class="title">
+        <mat-icon>agriculture</mat-icon>
+        <div class="title__identification">
+          {{ 'FARMER_CARD.LABEL.IDENTIFICATION' | translate }}:
+          {{ farmer.personIdentification | mask: 'CPF_CNPJ' }}
+        </div>
+      </div></mat-card-title
+    >
+    <mat-card-subtitle
+      >{{ 'FARMER_CARD.LABEL.COMPANY_NAME' | translate }}:
+      {{ farmer.companyName }}</mat-card-subtitle
+    >
+    <mat-card-subtitle
+      >{{ 'FARMER_CARD.LABEL.TRADING_NAME' | translate }}:
+      {{ farmer.tradingName }}</mat-card-subtitle
+    >
+    <mat-card-subtitle
+      ><div class="farmer-info">
+        <mat-icon class="farmer-info__icon">location_on</mat-icon>
+        <div class="farmer-info__description">
+          {{ 'FARMER_CARD.LABEL.LOCATION' | translate }}: {{ farmer.city }} - {{ farmer.state }}
+        </div>
+      </div></mat-card-subtitle
+    >
     <mat-card-subtitle *ngIf="farmer.phoneNumber"
-      >{{ 'FARMER_CARD.PHONE_NUMBER' | translate }}: {{ farmer.phoneNumber }}</mat-card-subtitle
+      ><div class="farmer-info">
+        <mat-icon class="farmer-info__icon">call</mat-icon>
+        <div class="farmer-info__description">
+          {{ 'FARMER_CARD.LABEL.PHONE_NUMBER' | translate }}: {{ farmer.phoneNumber }}
+        </div>
+      </div></mat-card-subtitle
     >
   </mat-card-header>
   <mat-card-actions>
-    <button class="action-button" mat-raised-button color="primary" (click)="openEditDialog()">
+    <button class="action-button" mat-stroked-button color="primary" (click)="openEditDialog()">
+      <mat-icon>edit</mat-icon>
       {{ 'FARMER_CARD.EDIT' | translate }}
     </button>
-    <button class="action-button" mat-raised-button color="warn" (click)="openDeleteDialog()">
+    <button class="action-button" mat-stroked-button color="warn" (click)="openDeleteDialog()">
+      <mat-icon>delete</mat-icon>
       {{ 'FARMER_CARD.DELETE' | translate }}
     </button>
   </mat-card-actions>
