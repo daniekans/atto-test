@@ -28,6 +28,14 @@ services:
       - DB_PORT=$DB_DOCKER_PORT
     stdin_open: true
     tty: true
+  web:
+    depends_on:
+      - api
+    build: ./farmers-web
+    env_file: ./.env
+    ports:
+      - $WEB_LOCAL_PORT:$WEB_DOCKER_PORT
 
 volumes:
   db:
+  node_modules:
