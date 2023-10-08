@@ -8,7 +8,7 @@ describe('FarmerFormDialogComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FarmerFormDialogComponent]
+      declarations: [FarmerFormDialogComponent],
     });
     fixture = TestBed.createComponent(FarmerFormDialogComponent);
     component = fixture.componentInstance;

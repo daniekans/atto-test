@@ -8,7 +8,7 @@ describe('DeleteFarmerDialogComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DeleteFarmerDialogComponent]
+      declarations: [DeleteFarmerDialogComponent],
     });
     fixture = TestBed.createComponent(DeleteFarmerDialogComponent);
     component = fixture.componentInstance;
