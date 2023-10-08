@@ -42,8 +42,11 @@ export class FarmerFormDialogComponent implements OnInit {
           this.validateDuplicatedPersonIdentification.bind(this),
         ],
       ],
-      city: [farmer?.city ?? '', [Validators.required]],
-      state: [farmer?.state ?? '', [Validators.required]],
+      city: [farmer?.city ?? '', [Validators.required, Validators.maxLength(50)]],
+      state: [
+        farmer?.state ?? '',
+        [Validators.required, Validators.minLength(2), Validators.maxLength(2)],
+      ],
       phoneNumber: [farmer?.phoneNumber ?? ''],
     });
   }

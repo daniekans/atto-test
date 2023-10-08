@@ -29,7 +29,8 @@
       ><div class="farmer-info">
         <mat-icon class="farmer-info__icon">call</mat-icon>
         <div class="farmer-info__description">
-          {{ 'FARMER_CARD.LABEL.PHONE_NUMBER' | translate }}: {{ farmer.phoneNumber }}
+          {{ 'FARMER_CARD.LABEL.PHONE_NUMBER' | translate }}:
+          {{ farmer.phoneNumber | mask: '(00) 0000-0000||(00) 00000-0000' }}
         </div>
       </div></mat-card-subtitle
     >

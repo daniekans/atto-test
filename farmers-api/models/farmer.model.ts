@@ -30,11 +30,12 @@ export const farmerModel = (sequelize: Sequelize) =>
       tradingName: { type: DataTypes.STRING, allowNull: false },
       personIdentification: { type: DataTypes.STRING(15), allowNull: false, unique: true },
       city: { type: DataTypes.STRING(50), allowNull: false },
-      state: { type: DataTypes.STRING(50), allowNull: false },
+      state: { type: DataTypes.CHAR(2), allowNull: false },
       phoneNumber: { type: DataTypes.STRING(20) },
     },
     {
       tableName: 'farmer',
+      timestamps: false,
       sequelize,
     }
   );

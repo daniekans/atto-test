@@ -30,17 +30,24 @@
   "FARMER_FORM_DIALOG": {
     "TITLE_ADD": "Adicionar Agricultor",
     "TITLE_EDIT": "Editar Agricultor",
-    "COMPANY_NAME": "Razão Social",
-    "TRADING_NAME": "Nome Fantasia",
-    "IDENTIFICATION": "CPF/CNPJ",
-    "CITY": "Cidade",
-    "STATE": "Estado",
-    "PHONE_NUMBER": "Celular",
+    "LABEL": {
+      "COMPANY_NAME": "Razão Social",
+      "TRADING_NAME": "Nome Fantasia",
+      "IDENTIFICATION": "CPF/CNPJ",
+      "CITY": "Cidade",
+      "STATE": "Estado",
+      "PHONE_NUMBER": "Celular"
+    },
+    "PLACEHOLDER": {
+      "STATE": "Exemplo: MT"
+    },
+    "ERROR": {
+      "INVALID_IDENTIFICATION": "CPF/CNPJ inválido.",
+      "DUPLICATED_IDENTIFICATION": "Este CPF/CNPJ já existe."
+    },
     "CANCEL": "Cancelar",
     "SAVE": "Salvar",
     "ADD": "Adicionar",
-    "INVALID_IDENTIFICATION": "CPF/CNPJ inválido.",
-    "DUPLICATED_IDENTIFICATION": "Este CPF/CNPJ já existe.",
     "ADDED_SUCCESSFULLY": "Agricultor adicionado.",
     "EDITED_SUCCESSFULLY": "Agricultor editado."
   }
