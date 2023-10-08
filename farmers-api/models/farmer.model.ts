@@ -28,7 +28,7 @@ export const farmerModel = (sequelize: Sequelize) =>
       },
       companyName: { type: DataTypes.STRING, allowNull: false },
       tradingName: { type: DataTypes.STRING, allowNull: false },
-      personIdentification: { type: DataTypes.STRING(15), allowNull: false },
+      personIdentification: { type: DataTypes.STRING(15), allowNull: false, unique: true },
       city: { type: DataTypes.STRING(50), allowNull: false },
       state: { type: DataTypes.STRING(50), allowNull: false },
       phoneNumber: { type: DataTypes.STRING(20) },

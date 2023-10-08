@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>
   {{ 'FARMER_FORM_DIALOG.TITLE_' + (isEditMode ? 'EDIT' : 'ADD') | translate }}
 </h1>
-<div mat-dialog-content>
+<div *ngIf="formGroup" mat-dialog-content>
   <form [formGroup]="formGroup">
     <mat-form-field>
       <mat-label>{{ 'FARMER_FORM_DIALOG.COMPANY_NAME' | translate }}</mat-label>
@@ -13,9 +13,16 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>{{ 'FARMER_FORM_DIALOG.IDENTIFICATION' | translate }}</mat-label>
-      <input matInput formControlName="identification" mask="CPF_CNPJ" />
-      <mat-error align="start" *ngIf="formGroup.get('identification')?.hasError('digit')">{{
+      <input
+        matInput
+        formControlName="identification"
+        mask="CPF_CNPJ"
+        (change)="onIdentificationFieldChanged()" />
+      <mat-error align="start" *ngIf="formGroup.controls.identification.hasError('digit')">{{
         'FARMER_FORM_DIALOG.INVALID_IDENTIFICATION' | translate
+      }}</mat-error>
+      <mat-error align="start" *ngIf="formGroup.controls.identification.hasError('duplicated')">{{
+        'FARMER_FORM_DIALOG.DUPLICATED_IDENTIFICATION' | translate
       }}</mat-error>
     </mat-form-field>
     <mat-form-field>

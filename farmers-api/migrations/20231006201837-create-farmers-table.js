@@ -14,7 +14,7 @@ module.exports = {
         },
         companyName: { type: Sequelize.STRING, allowNull: false },
         tradingName: { type: Sequelize.STRING, allowNull: false },
-        personIdentification: { type: new Sequelize.STRING(15), allowNull: false },
+        personIdentification: { type: new Sequelize.STRING(15), allowNull: false, unique: true },
         city: { type: Sequelize.STRING(50), allowNull: false },
         state: { type: Sequelize.STRING(50), allowNull: false },
         phoneNumber: { type: new Sequelize.STRING(20) },

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Farmer } from '../models/farmer.interface';
 
@@ -9,11 +9,14 @@ const farmersEndpoint = `${environment.api}/api/farmers`;
 @Injectable({ providedIn: 'root' })
 export class FarmerService {
   readonly farmerChangeEvent: Subject<void> = new Subject();
+  private _currentFarmerList: Farmer[] | undefined;
 
   constructor(private httpClient: HttpClient) {}
 
   findAllFarmers(): Observable<Farmer[]> {
-    return this.httpClient.get<Farmer[]>(farmersEndpoint);
+    return this.httpClient
+      .get<Farmer[]>(farmersEndpoint)
+      .pipe(tap((farmerList: Farmer[]) => (this._currentFarmerList = farmerList)));
   }
 
   createFarmer(farmer: Farmer): Observable<Farmer> {
@@ -26,5 +29,12 @@ export class FarmerService {
 
   deleteFarmer(farmerId: number): Observable<void> {
     return this.httpClient.delete<void>(`${farmersEndpoint}/${farmerId}`);
+  }
+
+  hasAnyFarmerWithIdentification(personIdentification: string): boolean {
+    return (
+      this._currentFarmerList != null &&
+      this._currentFarmerList.some(farmer => farmer.personIdentification === personIdentification)
+    );
   }
 }
