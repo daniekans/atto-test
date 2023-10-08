@@ -1,11 +1,11 @@
 import { Dialect, Sequelize } from 'sequelize';
-import { dbConfig } from '../config/db.config.js';
+import dbConfig from '../config/db.config';
 import { farmerModel } from './farmer.model';
 
-const sequelize = new Sequelize(dbConfig.DB!, dbConfig.USER!, dbConfig.PASSWORD, {
-  port: Number(dbConfig.PORT),
-  host: dbConfig.HOST,
-  dialect: dbConfig.DIALECT as Dialect,
+const sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
+  port: Number(dbConfig.port),
+  host: dbConfig.host,
+  dialect: dbConfig.dialect as Dialect,
   pool: {
     max: dbConfig.pool.max,
     min: dbConfig.pool.min,
