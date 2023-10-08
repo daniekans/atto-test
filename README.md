@@ -13,11 +13,13 @@ O projeto é composto por dois pacotes que utilizam o [Node.js](https://nodejs.o
 
 # Execução
 
+> **Obs.:** Além da execução que será explicada a seguir, é possível [executar as _migrations_](#migrações) e [executar os _seeders_](#seeders) para criar a estrutura inicial do banco com dados de amostra.
+
 ## Utilizando _Docker Compose_
 
 É possível executar todas as aplicações que compõem o sistema utilizando o _Docker Compose_. Com o serviço do Docker em execução, basta rodar na linha de comando na raiz do repositório:
 
-```sh
+```console
 $ docker-compose up
 ```
 
@@ -31,7 +33,7 @@ Antes de executar a API, é preciso que haja um serviço de banco de dados MySQL
 
 Com o banco já preparado, é preciso instalar as dependências da API e executá-la em seguida:
 
-```sh
+```console
 $ cd farmers-api
 $ npm ci
 $ npm run dev
@@ -41,7 +43,7 @@ $ npm run dev
 
 Para iniciar o front end, é preciso primeiro instalar as dependências e em seguida executar o projeto:
 
-```sh
+```console
 $ cd farmers-web
 $ npm ci
 $ npm run ng serve
@@ -49,13 +51,26 @@ $ npm run ng serve
 
 # Migrações
 
-O gerenciamento de _migrations_ de banco de dados é realizado por meio do Sequelize. Para executar as migrações, utilize este comando:
+O gerenciamento de _migrations_ de banco de dados é realizado por meio do Sequelize. Para executar as migrações, utilize este comando no diretório da API:
 
-```sh
+```console
 $ npx sequelize-cli db:migrate
 ```
 
 Há outros comandos possíveis utilizando o Sequelize CLI, como:
 
 - `npx sequelize-cli migration:generate --name nome-da-migration`: gera uma nova _migration_ em [_/migrations_](./farmers-api/migrations/);
-- `npx sequelize-cli db:migrate:undo`: desfaz a _migration_ mais recente;
+- `npx sequelize-cli db:migrate:undo`: desfaz a _migration_ mais recente.
+
+# Seeders
+
+Para inserir a qualquer momento dados de amostra no banco (desde que as _migrations_ já tenham executado), é possível rodar _seeders_ com o Sequelize CLI. Basta executar o seguinte comando no diretório da API:
+
+```console
+$ npx sequelize-cli db:seed:all
+```
+
+Assim como para [_migrations_], há outros comandos possíveis para gerenciar _seeders_, como:
+
+- `npx sequelize-cli seed:generate --name nome-do-seeder`: gera uma um novo _seeder_ em [_/seeders_](./farmers-api/seeders/);
+- `npx sequelize-cli db:seed:undo`: desfaz o _seeder_ mais recente.
