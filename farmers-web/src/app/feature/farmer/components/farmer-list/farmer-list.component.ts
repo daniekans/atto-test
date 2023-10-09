@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, filter, switchMap, tap } from 'rxjs';
-import { Farmer } from '../../models/farmer.interface';
+import { Farmer, UnpersistedFarmer } from '../../models/farmer.interface';
 import { FarmerService } from '../../services/farmer.service';
 import { FarmerFormDialogComponent } from '../farmer-form-dialog/farmer-form-dialog.component';
 
@@ -37,8 +37,8 @@ export class FarmerListComponent implements OnInit {
     dialogRef
       .afterClosed()
       .pipe(
-        filter((newFarmer: Farmer) => newFarmer != null),
-        switchMap((newFarmer: Farmer) => this.farmerService.createFarmer(newFarmer)),
+        filter((newFarmer: UnpersistedFarmer) => newFarmer != null),
+        switchMap((newFarmer: UnpersistedFarmer) => this.farmerService.createFarmer(newFarmer)),
         tap(() => this.farmerService.farmerChangeEvent.next()),
         switchMap(() => this.translateService.get('FARMER_FORM_DIALOG.ADDED_SUCCESSFULLY'))
       )
