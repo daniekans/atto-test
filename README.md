@@ -4,7 +4,7 @@ Este é um sistema para listar, adicionar, editar e excluir cadastros de agricul
 
 O projeto é composto por dois pacotes que utilizam o [Node.js](https://nodejs.org/) e separam responsabilidades utilizando o padrão MVC:
 
-- [Aplicação Web para listar, adicionar, editar e excluir Agricultores](./farmers-web/)
+- [Aplicação Web (Front End) para listar, adicionar, editar e excluir Agricultores](./farmers-web/)
   - O principal framework utilizado é o [Angular](https://angular.io/).
 - [API para operações CRUD realizadas no banco de Agricultores](./farmers-api/)
   - São utilizados o [Express](https://expressjs.com/) para tratamento de requisições HTTP e o [Sequelize](https://sequelize.org/) para ORM e gerenciamento de _migrations_.
@@ -39,7 +39,7 @@ $ npm ci
 $ npm run dev
 ```
 
-### Aplicação Web
+### Front End
 
 Para iniciar o front end, é preciso primeiro instalar as dependências e em seguida executar o projeto:
 
@@ -74,3 +74,29 @@ Assim como para [_migrations_], há outros comandos possíveis para gerenciar _s
 
 - `npx sequelize-cli seed:generate --name nome-do-seeder`: gera uma um novo _seeder_ em [_/seeders_](./farmers-api/seeders/);
 - `npx sequelize-cli db:seed:undo`: desfaz o _seeder_ mais recente.
+
+# Testes Automatizados
+
+## API
+
+Utilize o seguinte comando no diretório da API:
+
+```console
+$ npm run test
+```
+
+Ou, para utilizar o modo _watch_:
+
+```console
+$ npm run test:watch
+```
+
+Os testes foram criados utilizando o [Jest](https://jestjs.io/). Assim, também é possível executar os testes diretamente com `npx jest` e outros parâmetros possíveis.
+
+## Front End
+
+Assim como para a API, utilize o comando a seguir, porém no diretório da aplicação front end:
+
+```console
+$ npm run test
+```
