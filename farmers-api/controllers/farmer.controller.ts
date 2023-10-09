@@ -54,9 +54,9 @@ export class FarmerController {
 
   async update(req: Request, res: Response): Promise<void> {
     try {
-      await this.farmerService.update(req.body, Number(req.params['id']));
-
-      res.status(StatusCode.SuccessNoContent).send();
+      res
+        .status(StatusCode.SuccessNoContent)
+        .send(await this.farmerService.update(req.body, Number(req.params['id'])));
     } catch (error) {
       if (error instanceof InvalidFieldsError) {
         res.status(StatusCode.ClientErrorBadRequest).send({

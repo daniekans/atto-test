@@ -11,7 +11,7 @@ export class FarmerBaseService implements FarmerService {
     private farmerMapper: FarmerMapper
   ) {}
 
-  async create(farmerDTO: FarmerDTO): Promise<FarmerDTO> {
+  async create(farmerDTO: Partial<FarmerDTO> | null): Promise<FarmerDTO> {
     if (
       farmerDTO == null ||
       farmerRequiredFields.some(requiredField => farmerDTO[requiredField] == null)
@@ -19,29 +19,29 @@ export class FarmerBaseService implements FarmerService {
       throw new InvalidFieldsError();
     }
 
-    const farmer: UnpersistedFarmer = this.farmerMapper.toUnpersistedFarmer(farmerDTO);
+    const farmer: UnpersistedFarmer = this.farmerMapper.toUnpersistedFarmer(farmerDTO as FarmerDTO);
     const createdRecord: Farmer = await this.farmerRepository.create(farmer);
 
     return this.farmerMapper.fromEntity(createdRecord);
   }
 
   async findAll(): Promise<FarmerDTO[]> {
-    const allFarmers: Farmer[] = await Farmer.findAll();
+    const allFarmers: Farmer[] = await this.farmerRepository.findAll();
 
     return allFarmers.map(this.farmerMapper.fromEntity);
   }
 
-  async findOne(id: number): Promise<FarmerDTO | null> {
+  async findOne(id: number | null): Promise<FarmerDTO | null> {
     if (id == null) {
       throw new InvalidFieldsError();
     }
 
-    const recordFound: Farmer | null = await this.farmerRepository.findOne(id);
+    const recordFound: Farmer = await this.farmerRepository.findOne(id);
 
-    return recordFound == null ? null : this.farmerMapper.fromEntity(recordFound);
+    return this.farmerMapper.fromEntity(recordFound);
   }
 
-  async update(farmerDTO: FarmerDTO, id: number): Promise<void> {
+  async update(farmerDTO: Partial<FarmerDTO> | null, id: number | null): Promise<FarmerDTO> {
     if (
       id == null ||
       farmerDTO == null ||
@@ -50,12 +50,13 @@ export class FarmerBaseService implements FarmerService {
       throw new InvalidFieldsError();
     }
 
-    const farmer: UnpersistedFarmer = this.farmerMapper.toUnpersistedFarmer(farmerDTO);
+    const farmer: UnpersistedFarmer = this.farmerMapper.toUnpersistedFarmer(farmerDTO as FarmerDTO);
+    const updatedFarmer: Farmer = await this.farmerRepository.update(farmer, id);
 
-    await this.farmerRepository.update(farmer, id);
+    return this.farmerMapper.fromEntity(updatedFarmer);
   }
 
-  async delete(id: number): Promise<void> {
+  async delete(id: number | null): Promise<void> {
     if (id == null) {
       throw new InvalidFieldsError();
     }
