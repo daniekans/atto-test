@@ -23,6 +23,6 @@ const db = {
 };
 
 State.hasMany(Farmer, { foreignKey: 'stateId' });
-Farmer.belongsTo(State);
+Farmer.belongsTo(State, { foreignKey: 'stateId' });
 
 export default db;
