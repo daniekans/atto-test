@@ -1,11 +1,13 @@
 import {
   CreationOptional,
   DataTypes,
+  ForeignKey,
   InferAttributes,
   InferCreationAttributes,
   Model,
   Sequelize,
 } from 'sequelize';
+import { State } from './state.model';
 
 export class Farmer extends Model<InferAttributes<Farmer>, InferCreationAttributes<Farmer>> {
   declare id: CreationOptional<number>;
@@ -13,7 +15,7 @@ export class Farmer extends Model<InferAttributes<Farmer>, InferCreationAttribut
   declare tradingName: string;
   declare personIdentification: string;
   declare city: string;
-  declare state: string;
+  declare stateId: ForeignKey<State['id']>;
   declare phoneNumber: string | null;
 }
 
@@ -30,7 +32,6 @@ export const farmerModel = (sequelize: Sequelize) =>
       tradingName: { type: DataTypes.STRING, allowNull: false },
       personIdentification: { type: DataTypes.STRING(15), allowNull: false, unique: true },
       city: { type: DataTypes.STRING(50), allowNull: false },
-      state: { type: DataTypes.CHAR(2), allowNull: false },
       phoneNumber: { type: DataTypes.STRING(20) },
     },
     {
@@ -43,5 +44,5 @@ export const farmerModel = (sequelize: Sequelize) =>
 export interface UnpersistedFarmer
   extends Pick<
     Farmer,
-    'companyName' | 'tradingName' | 'personIdentification' | 'city' | 'state' | 'phoneNumber'
+    'companyName' | 'tradingName' | 'personIdentification' | 'city' | 'stateId' | 'phoneNumber'
   > {}
