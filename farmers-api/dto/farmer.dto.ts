@@ -4,7 +4,7 @@ export interface FarmerDTO {
   tradingName: string;
   personIdentification: string;
   city: string;
-  state: string;
+  stateId: number;
   phoneNumber: string | null;
 }
 
@@ -13,5 +13,5 @@ export const farmerRequiredFields: Array<keyof FarmerDTO> = [
   'tradingName',
   'personIdentification',
   'city',
-  'state',
+  'stateId',
 ];
