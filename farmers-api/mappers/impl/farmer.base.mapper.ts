@@ -10,7 +10,7 @@ export class FarmerBaseMapper implements FarmerMapper {
       tradingName: dto.tradingName,
       personIdentification: dto.personIdentification,
       city: dto.city,
-      state: dto.state,
+      stateId: dto.stateId,
       phoneNumber: dto.phoneNumber ?? null,
     });
   }
@@ -22,7 +22,7 @@ export class FarmerBaseMapper implements FarmerMapper {
       tradingName: entity.tradingName,
       personIdentification: entity.personIdentification,
       city: entity.city,
-      state: entity.state,
+      stateId: entity.stateId,
       phoneNumber: entity.phoneNumber ?? null,
     };
   }
@@ -33,7 +33,7 @@ export class FarmerBaseMapper implements FarmerMapper {
       tradingName: dto.tradingName,
       personIdentification: dto.personIdentification,
       city: dto.city,
-      state: dto.state,
+      stateId: dto.stateId,
       phoneNumber: dto.phoneNumber ?? null,
     };
   }

@@ -9,7 +9,7 @@ module.exports = {
         tradingName: 'FertilAgro',
         personIdentification: '91459083000137',
         city: 'Goiânia',
-        state: 'GO',
+        stateId: await this.getStateIdByCode('GO', queryInterface),
         phoneNumber: '(83) 99247-2958',
       },
       {
@@ -17,7 +17,7 @@ module.exports = {
         tradingName: 'AnaPlant',
         personIdentification: '97871647296',
         city: 'Cuiabá',
-        state: 'MT',
+        stateId: await this.getStateIdByCode('MT', queryInterface),
         phoneNumber: '(96) 98323-3422',
       },
       {
@@ -25,7 +25,7 @@ module.exports = {
         tradingName: 'VerdeCampo',
         personIdentification: '69255079000106',
         city: 'Fortaleza',
-        state: 'CE',
+        stateId: await this.getStateIdByCode('CE', queryInterface),
         phoneNumber: null,
       },
     ]);
@@ -33,5 +33,17 @@ module.exports = {
 
   async down(queryInterface) {
     await queryInterface.bulkDelete('farmer', null, {});
+  },
+
+  async getStateIdByCode(code, queryInterface) {
+    return queryInterface.rawSelect(
+      'state',
+      {
+        where: {
+          code: code,
+        },
+      },
+      ['id']
+    );
   },
 };

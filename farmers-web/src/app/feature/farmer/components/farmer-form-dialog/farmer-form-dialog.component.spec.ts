@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateTestingModule } from 'src/app/core/tests/translate-testing.module';
+import { StateService } from 'src/app/feature/state/services/state.service';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { FarmerService } from '../../services/farmer.service';
 import { FarmerFormDialogComponent } from './farmer-form-dialog.component';
@@ -19,6 +20,10 @@ describe('FarmerFormDialogComponent', () => {
         {
           provide: FarmerService,
           useValue: jasmine.createSpyObj<FarmerService>(['hasAnyFarmerWithIdentification']),
+        },
+        {
+          provide: StateService,
+          useValue: jasmine.createSpyObj<StateService>(['findAllStates']),
         },
         {
           provide: MatDialogRef,

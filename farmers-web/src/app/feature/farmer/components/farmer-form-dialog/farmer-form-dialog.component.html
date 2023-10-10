@@ -31,11 +31,11 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>{{ 'FARMER_FORM_DIALOG.LABEL.STATE' | translate }}</mat-label>
-      <input
-        matInput
-        formControlName="state"
-        mask="UU"
-        placeholder="{{ 'FARMER_FORM_DIALOG.PLACEHOLDER.STATE' | translate }}" />
+      <mat-select formControlName="stateId">
+        <mat-option *ngFor="let state of allStates$ | async" [value]="state.id">{{
+          state.name
+        }}</mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field>
       <mat-label>{{ 'FARMER_FORM_DIALOG.LABEL.PHONE_NUMBER' | translate }}</mat-label>
