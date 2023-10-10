@@ -4,6 +4,7 @@ import * as dotenv from 'dotenv';
 import express, { Express, Request, Response } from 'express';
 import db from '../models/index';
 import { setUpFarmerRoutes } from '../routes/farmer.routes';
+import { setUpStateRoutes } from '../routes/state.routes';
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ db.sequelize
   .then(() => console.log('Synced database.'))
   .catch(err => console.log(`Failed to sync database: ${err.message}`));
 
+setUpStateRoutes(app);
 setUpFarmerRoutes(app);
 
 const PORT = process.env['NODE_DOCKER_PORT'] ?? 8080;
