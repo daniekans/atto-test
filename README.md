@@ -62,7 +62,8 @@ $ npx sequelize-cli db:migrate
 Há outros comandos possíveis utilizando o Sequelize CLI, como:
 
 - `npx sequelize-cli migration:generate --name nome-da-migration`: gera uma nova _migration_ em [_/migrations_](./farmers-api/migrations/);
-- `npx sequelize-cli db:migrate:undo`: desfaz a _migration_ mais recente.
+- `npx sequelize-cli db:migrate:undo`: desfaz a _migration_ mais recente;
+- `npx sequelize-cli db:migrate:undo:all`: desfaz todas as _migration_ executadas.
 
 # Seeders
 
@@ -75,7 +76,8 @@ $ npx sequelize-cli db:seed:all
 Assim como para [_migrations_], há outros comandos possíveis para gerenciar _seeders_, como:
 
 - `npx sequelize-cli seed:generate --name nome-do-seeder`: gera uma um novo _seeder_ em [_/seeders_](./farmers-api/seeders/);
-- `npx sequelize-cli db:seed:undo`: desfaz o _seeder_ mais recente.
+- `npx sequelize-cli db:seed:undo`: desfaz o _seeder_ mais recente;
+- `npx sequelize-cli db:seed:undo:all`: desfaz todos os _seeders_ executados.
 
 # Testes Automatizados
 
