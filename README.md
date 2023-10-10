@@ -13,7 +13,7 @@ O projeto é composto por dois pacotes que utilizam o [Node.js](https://nodejs.o
 
 # Execução
 
-> **Obs.:** Além da execução que será explicada a seguir, é possível [executar as _migrations_](#migrações) e [executar os _seeders_](#seeders) para criar a estrutura inicial do banco com dados de amostra.
+> ⚠️ **Obs.:** Além da execução que será explicada a seguir, é importante [executar as _migrations_](#migrações) para criar a estrutura inicial do banco e inserir dados essenciais (e.g. registros dos estados brasileiros). Também é possível [executar os _seeders_](#seeders) para inserir dados de amostra de agricultores.
 
 ## Utilizando _Docker Compose_
 
@@ -23,13 +23,15 @@ O projeto é composto por dois pacotes que utilizam o [Node.js](https://nodejs.o
 $ docker-compose up
 ```
 
+A aplicação web estará disponível por padrão em `http://localhost:4200`.
+
 ## Execução Individual
 
 Alternativamente, é possível executar as aplicações individualmente em ambiente local, conforme as instruções a seguir.
 
 ### API
 
-Antes de executar a API, é preciso que haja um serviço de banco de dados MySQL ativo para possibilitar a criação e o uso do banco com os dados dos agricultores. Caso necessário, altere as configurações de conexão com o banco local no arquivo [db.config.js](/farmers-api/config/db.config.js).
+Antes de executar a API, é preciso haver um serviço de banco de dados MySQL ativo para possibilitar a criação e o uso do banco com os dados dos agricultores. Caso necessário, altere as configurações de conexão com o banco local no arquivo [db.config.js](/farmers-api/config/db.config.js).
 
 Com o banco já preparado, é preciso instalar as dependências da API e executá-la em seguida:
 
@@ -95,7 +97,7 @@ Os testes foram criados utilizando o [Jest](https://jestjs.io/). Assim, também 
 
 ## Front End
 
-Assim como para a API, utilize o comando a seguir, porém no diretório da aplicação front end:
+Assim como para a API, utilize o comando a seguir no diretório principal da aplicação front end:
 
 ```console
 $ npm run test
