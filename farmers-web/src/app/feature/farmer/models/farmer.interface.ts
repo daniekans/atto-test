@@ -4,7 +4,7 @@ export interface Farmer {
   tradingName: string;
   personIdentification: string;
   city: string;
-  state: string;
+  stateId: number;
   phoneNumber: string | null;
 }
 

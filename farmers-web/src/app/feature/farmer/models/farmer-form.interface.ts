@@ -5,6 +5,6 @@ export interface FarmerForm {
   tradingName: FormControl<string>;
   identification: FormControl<string>;
   city: FormControl<string>;
-  state: FormControl<string>;
+  stateId: FormControl<number | null>;
   phoneNumber: FormControl<string>;
 }

@@ -20,8 +20,9 @@
     <mat-card-subtitle
       ><div class="farmer-info">
         <mat-icon class="farmer-info__icon">location_on</mat-icon>
-        <div class="farmer-info__description">
-          {{ 'FARMER_CARD.LABEL.LOCATION' | translate }}: {{ farmer.city }} - {{ farmer.state }}
+        <div class="farmer-info__description" *ngIf="statesById$ | async as statesById">
+          {{ 'FARMER_CARD.LABEL.LOCATION' | translate }}: {{ farmer.city }} -
+          {{ statesById[farmer.stateId].code }}
         </div>
       </div></mat-card-subtitle
     >
